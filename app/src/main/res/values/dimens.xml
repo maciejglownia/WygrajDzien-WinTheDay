@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="main_content_padding">16dp</dimen>
+    <dimen name="edit_text_text_size">16sp</dimen>
+    <dimen name="add_screen_btn_save_marginTop">24dp</dimen>
+    <dimen name="btn_text_size">18sp</dimen>
+    <dimen name="add_screen_btn_save_paddingTopBottom">8dp</dimen>
+    <dimen name="button_radius">10dp</dimen>
+</resources>
