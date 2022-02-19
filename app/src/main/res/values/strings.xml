@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Wygraj dzień</string>
     <string name="edit_text_hint_title">Zadanie</string>
-    <string name="btn_text_save">SAVE</string>
+    <string name="btn_text_save">ZAPISZ</string>
+    <string name="btn_text_next">DALEJ</string>
+    <string name="welcome_exclamation">Witaj!</string>
+    <string name="welcome_sentence">Cieszę się, że chcesz osiągać swoje cele.</string>
+    <string name="short_description_before_start">Stwórz listę swoich zwycięstw. Zacznij wygrywać dni, tygodnie, lata, życie!</string>
 </resources>

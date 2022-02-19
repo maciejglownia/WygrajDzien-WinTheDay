@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WygrajDzien">
         <activity
-            android:name=".AddTasksToDo"
+            android:name=".TaskListActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AddTasksToDoActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
