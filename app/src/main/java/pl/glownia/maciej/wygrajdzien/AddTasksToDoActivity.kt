@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import pl.glownia.maciej.wygrajdzien.databinding.ActivityAddTasksToDoBinding
 
-class AddTasksToDo : AppCompatActivity() {
+class AddTasksToDoActivity : AppCompatActivity() {
     private var binding: ActivityAddTasksToDoBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
