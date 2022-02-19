@@ -1,8 +1,9 @@
-package pl.glownia.maciej.wygrajdzien
+package pl.glownia.maciej.wygrajdzien.activities
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import pl.glownia.maciej.wygrajdzien.activities.AddTasksToDoActivity
 import pl.glownia.maciej.wygrajdzien.databinding.ActivityTaskListBinding
 
 class TaskListActivity : AppCompatActivity() {

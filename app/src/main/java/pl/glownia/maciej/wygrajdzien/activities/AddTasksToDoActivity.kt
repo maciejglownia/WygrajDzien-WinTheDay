@@ -1,4 +1,4 @@
-package pl.glownia.maciej.wygrajdzien
+package pl.glownia.maciej.wygrajdzien.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
