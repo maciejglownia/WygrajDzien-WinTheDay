@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    // Need to add this line below and next lines below
+    // This will basically just allow us to use a bunch of classes that which will help us
+    // to store data permanently using Room
+    id 'kotlin-kapt'
 }
 
 android {
@@ -36,6 +40,19 @@ android {
 
 dependencies {
 
+    // Need to add this below for room
+    def room_version = '2.4.1'
+    def activityVersion = '1.4.0'
+
+    // Room and Lifecycle dependencies
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // Kotlin extension for coroutine support with room
+    implementation("androidx.room:room-ktx:$room_version")
+
+    // Kotlin extension for coroutine support with activities
+    implementation("androidx.activity:activity-ktx:$activityVersion")
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
