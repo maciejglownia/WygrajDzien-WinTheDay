@@ -24,6 +24,18 @@ abstract class TaskDatabase : RoomDatabase() {
     // database class,
     // For example, classes can call task database, get instance context to instantiate
     // a new task database
+    /**
+     * Explanation after create TaskApp (after those: Entity, Dao, Database)
+     *
+     * We have this companion object where we had this instance get instance method, which is
+     * a singleton that only exists once in the entire application.
+     * So there's only one instance of this instance object at once.
+     *
+     * So now we can go ahead (check TaskApp) and get the instance by passing
+     * >this< as the application. Because getInstance (method below) need a context and we are passing
+     * the application context as the context and we need to set up the application accordingly
+     * inside of our application tag of our AndroidManifest
+     */
     companion object {
         // So this will keep a reference to any database returned via get instance
         // This will help us to avoid repeatedly initializing the database, which is expensive
