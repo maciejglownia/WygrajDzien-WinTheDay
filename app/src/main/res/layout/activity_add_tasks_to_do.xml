@@ -129,7 +129,7 @@
 
                 <!--CardView with details for second category-->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cvFullSecondCategoryField"
+                    android:id="@+id/cvSecondCategoryField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/item_task_cv_main_marginStartEnd"
@@ -173,7 +173,7 @@
 
                 <!--CardView with details for third category-->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cvFullThirdCategoryField"
+                    android:id="@+id/cvThirdCategoryField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/item_task_cv_main_marginStartEnd"
