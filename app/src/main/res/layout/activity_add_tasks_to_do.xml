@@ -7,7 +7,7 @@
     tools:context=".activities.AddTaskToDoActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarAddTasksToDo"
+        android:id="@+id/toolbarAddTaskToDo"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,8 +22,10 @@
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarAddTasksToDo">
+        app:layout_constraintTop_toBottomOf="@id/toolbarAddTaskToDo"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -35,20 +37,204 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/llCategoryField"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/etTitle"
+                    android:id="@+id/etTaskTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/add_screen_task_image_marginTop"
                     android:hint="@string/edit_text_hint_title"
                     android:inputType="textCapWords"
                     android:textColor="@color/primary_text_color"
                     android:textColorHint="@color/secondary_text_color"
-                    android:textSize="@dimen/edit_text_text_size" />
+                    android:textSize="@dimen/edit_text_text_size"
+                    app:layout_constraintBottom_toTopOf="@id/tvChooseCategoryText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvChooseCategoryText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/add_screen_text_add_image_padding"
+                android:layout_marginBottom="@dimen/add_screen_text_add_image_padding"
+                android:text="@string/choose_category"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/edit_text_text_size"
+                app:layout_constraintBottom_toTopOf="@id/llCategoryField"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilTaskName" />
+
+            <LinearLayout
+                android:id="@+id/llCategoryField"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="@dimen/add_screen_task_image_marginTop"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@id/ivTaskChosenCategory"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilTaskName"
+                app:layout_goneMarginTop="@dimen/add_screen_task_image_marginTop">
+
+                <!--CardView with details for first category-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvFirstCategoryField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_task_cv_main_marginStartEnd"
+                    android:layout_marginEnd="@dimen/item_task_cv_main_marginStartEnd"
+                    android:background="@color/white"
+                    app:cardCornerRadius="@dimen/item_task_cv_corner_radius"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintBottom_toTopOf="@id/btnSave"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilTaskName">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/item_tasks_content_padding">
+
+                        <!--https://github.com/hdodenhof/CircleImageView -->
+                        <ImageView
+                            android:id="@+id/ivFirstCategoryImage"
+                            android:layout_width="@dimen/item_task_circular_image_size"
+                            android:layout_height="@dimen/item_task_circular_image_size"
+                            android:contentDescription="@string/image_content_description"
+                            android:src="@drawable/sport"
+                            app:civ_border_color="@color/circular_image_border_color" />
+
+                        <TextView
+                            android:id="@+id/tvFirstCategoryTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/physical_health"
+                            android:paddingStart="30dp"
+                            android:textColor="?attr/colorPrimary"
+                            android:textSize="@dimen/item_task_title_textSize"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--CardView with details for second category-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvFullSecondCategoryField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_task_cv_main_marginStartEnd"
+                    android:layout_marginEnd="@dimen/item_task_cv_main_marginStartEnd"
+                    android:background="@color/white"
+                    app:cardCornerRadius="@dimen/item_task_cv_corner_radius"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintBottom_toTopOf="@id/btnSave"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilTaskName">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/item_tasks_content_padding">
+
+                        <!--https://github.com/hdodenhof/CircleImageView -->
+                        <ImageView
+                            android:id="@+id/ivSecondCategoryImage"
+                            android:layout_width="@dimen/item_task_circular_image_size"
+                            android:layout_height="@dimen/item_task_circular_image_size"
+                            android:contentDescription="@string/image_content_description"
+                            android:src="@drawable/bulb_brain"
+                            app:civ_border_color="@color/circular_image_border_color" />
+
+                            <TextView
+                                android:id="@+id/tvSecondCategoryTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="?attr/colorPrimary"
+                                android:paddingStart="30dp"
+                                android:textSize="@dimen/item_task_title_textSize"
+                                android:textStyle="bold"
+                              android:text="@string/mental_health"
+                                />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--CardView with details for third category-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvFullThirdCategoryField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_task_cv_main_marginStartEnd"
+                    android:layout_marginEnd="@dimen/item_task_cv_main_marginStartEnd"
+                    android:background="@color/white"
+                    app:cardCornerRadius="@dimen/item_task_cv_corner_radius"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintBottom_toTopOf="@id/btnSave"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilTaskName">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/item_tasks_content_padding">
+
+                        <!--https://github.com/hdodenhof/CircleImageView -->
+                        <ImageView
+                            android:id="@+id/ivThirdCategoryImage"
+                            android:layout_width="@dimen/item_task_circular_image_size"
+                            android:layout_height="@dimen/item_task_circular_image_size"
+                            android:contentDescription="@string/image_content_description"
+                            android:src="@drawable/money"
+                            app:civ_border_color="@color/circular_image_border_color" />
+
+                            <TextView
+                                android:id="@+id/tvTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="?attr/colorPrimary"
+                                android:textSize="@dimen/item_task_title_textSize"
+                                android:paddingStart="30dp"
+                                android:textStyle="bold"
+                                android:text="@string/finance"
+                                tools:text="Finanse" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivTaskChosenCategory"
+                android:layout_width="50dp"
+                android:layout_height="@dimen/add_screen_task_image_size"
+                android:layout_marginTop="@dimen/add_screen_task_image_marginTop"
+                android:background="@drawable/shape_image_view_border"
+                android:backgroundTint="@color/circular_image_border_color"
+                android:padding="@dimen/add_screen_task_image_padding"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image"
+                android:visibility="gone"
+
+                app:layout_constraintBottom_toTopOf="@id/btnSave"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llCategoryField"
+                tools:visibility="visible" />
 
             <Button
                 android:id="@+id/btnSave"
@@ -65,7 +251,7 @@
                 android:textSize="@dimen/btn_text_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilTaskName" />
+                app:layout_constraintTop_toBottomOf="@+id/ivTaskChosenCategory" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
