@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import pl.glownia.maciej.wygrajdzien.R
@@ -57,6 +58,9 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
                     binding?.etTaskTitle?.text.isNullOrEmpty() -> {
                         Toast.makeText(this, "Wpisz nazwę zadania.", Toast.LENGTH_SHORT).show()
                     }
+                    binding?.ivTaskChosenCategory?.isVisible == false -> {
+                        Toast.makeText(this, "Wybierz kategorię.", Toast.LENGTH_SHORT).show()
+                    }
                     else -> {
                         // If a task in database is null add, if exists update it
                         Toast.makeText(
@@ -71,11 +75,12 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
                         }
                         // Clear the entry for next adding
                         binding?.etTaskTitle?.text?.clear()
+                        binding?.ivTaskChosenCategory?.visibility = View.GONE
+                        // After click save button go to the main screen where is list of places
+                        val intent = Intent(this@AddTaskToDoActivity, TaskListActivity::class.java)
+                        startActivity(intent)
                     }
                 }
-                // After click save button go to the main screen where is list of places
-                val intent = Intent(this@AddTaskToDoActivity, MainActivity::class.java)
-                startActivity(intent)
             }
         }
     }
