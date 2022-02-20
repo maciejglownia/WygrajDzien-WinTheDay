@@ -7,8 +7,11 @@ https://www.flaticon.com/free-icon/peak_2076421?related_id=2076417
 2. Sport icon:
 https://www.flaticon.com/free-icon/triangle_2983413
 
-3. Book icon:
-https://www.flaticon.com/premium-icon/book_3145765
+3. Bulb icon:
+https://www.flaticon.com/premium-icon/light-bulb_2120488?term=brain&related_id=2120488
 
 4. Money icon:
-https://www.flaticon.com/free-icon/wallet_584026?term=money&related_id=584026
+https://www.flaticon.com/free-icon/salary_3135706?term=money&related_id=3135706
+
+5. Image icon:
+https://www.flaticon.com/premium-icon/image_739147?term=image&related_id=739147
