@@ -14,4 +14,8 @@
     <color name="secondary_text_color">#c7e2fc</color>
     <color name="white_color">#FFFFFF</color>
     <color name="button_background_color">#4472b2</color>
+
+    <color name="item_task_description_text_color">#606060</color>
+    <color name="circular_image_border_color">#757575</color>
+
 </resources>

@@ -7,4 +7,6 @@
     <string name="welcome_sentence">Cieszę się, że chcesz osiągać swoje cele.</string>
     <string name="short_description_before_start">Stwórz listę swoich zwycięstw. Zacznij wygrywać dni, tygodnie, lata, życie!</string>
     <string name="text_when_there_is_no_task_yet">Jeszcze nie dodałeś żadnych zadań. Zrób to teraz i działaj.</string>
+    <string name="image_content_description">image</string>
+    <string name="choose_category">Wybierz kategorię:</string>
 </resources>
