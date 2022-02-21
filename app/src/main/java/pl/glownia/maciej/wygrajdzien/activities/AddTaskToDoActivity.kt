@@ -1,10 +1,10 @@
 package pl.glownia.maciej.wygrajdzien.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
@@ -69,7 +69,7 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
                             Toast.LENGTH_SHORT
                         ).show()
                         if (mTaskDetails == null) {
-                            // addTask(taskDao)
+                            addTask(taskDao)
                         } else {
                             // updateTask(mTaskDetails!!.id, taskDao)
                         }
@@ -82,6 +82,22 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 }
             }
+        }
+    }
+
+    // Add all details, change them to the String and save it in the database
+    private fun addTask(taskDao: TaskDao) {
+        val taskTitle = binding?.etTaskTitle?.text.toString()
+        val categoryImage = binding?.ivTaskChosenCategory.toString()
+        // Insert data (need to do in the background) -> lifecycleScope
+        lifecycleScope.launch {
+            taskDao.insert(
+                TaskEntity(
+                    title = taskTitle, image = categoryImage
+                )
+            )
+            // Let user know what happened
+            Toast.makeText(applicationContext, "Record saved", Toast.LENGTH_LONG).show()
         }
     }
 }
