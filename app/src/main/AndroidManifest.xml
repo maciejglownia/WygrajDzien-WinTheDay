@@ -11,14 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WygrajDzien">
         <activity
+            android:name=".activities.TaskDetailsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activities.TaskListActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.AddTaskToDoActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:label="Dodaj zadanie"/>
+            android:label="Dodaj zadanie"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="true"

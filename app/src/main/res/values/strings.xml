@@ -12,4 +12,6 @@
     <string name="physical_health">Zdrowie fizyczne</string>
     <string name="finance">Finanse</string>
     <string name="mental_health">Zdrowie psychiczne</string>
+    <string name="short_description">Short_description</string>
+    <string name="Are_you_sure_you_want_exit_the_app">Czy na pewno chcesz wyjść z aplikacji?</string>
 </resources>

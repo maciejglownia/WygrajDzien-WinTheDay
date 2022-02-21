@@ -8,10 +8,11 @@
     <dimen name="welcome_page_big_text_size">30sp</dimen>
     <dimen name="button_text_size">18sp</dimen>
     <dimen name="text_to_user_when_no_task_is_created_yet">24sp</dimen>
+    <dimen name="dialog_question_text">24sp</dimen>
 
     <dimen name="add_screen_til_marginTop">5dp</dimen>
     <dimen name="add_screen_task_image_size">50dp</dimen>
-    <dimen name="add_screen_task_image_marginTop">15dp</dimen>
+    <dimen name="add_screen_task_image_marginTop">16dp</dimen>
     <dimen name="add_screen_task_image_padding">2dp</dimen>
     <dimen name="add_screen_text_add_image_marginTop">10dp</dimen>
     <dimen name="add_screen_text_add_image_padding">10dp</dimen>
@@ -36,5 +37,11 @@
     <dimen name="image_border_stroke_size">0.5dp</dimen>
     <dimen name="add_task_image_shape_radius">3dp</dimen>
 
-
+    <dimen name="detail_screen_image_height_size">200dp</dimen>
+    <dimen name="detail_screen_image_width_size">200dp</dimen>
+    <dimen name="detail_screen_description_margin">16dp</dimen>
+    <dimen name="detail_screen_description_text_size">20sp</dimen>
+    <dimen name="detail_screen_location_marginStartEnd">8dp</dimen>
+    <dimen name="detail_screen_location_marginTop">16dp</dimen>
+    <dimen name="detail_screen_location_text_size">18sp</dimen>
 </resources>
