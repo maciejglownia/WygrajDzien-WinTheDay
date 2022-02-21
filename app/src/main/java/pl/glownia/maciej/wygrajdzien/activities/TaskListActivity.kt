@@ -1,5 +1,6 @@
 package pl.glownia.maciej.wygrajdzien.activities
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -12,8 +13,9 @@ import pl.glownia.maciej.wygrajdzien.adapter.TaskAdapter
 import pl.glownia.maciej.wygrajdzien.database.TaskApp
 import pl.glownia.maciej.wygrajdzien.database.TaskEntity
 import pl.glownia.maciej.wygrajdzien.databinding.ActivityTaskListBinding
+import pl.glownia.maciej.wygrajdzien.databinding.DialogCustomBackButtonForExitBinding
 
-class TaskListActivity : AppCompatActivity() {
+class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
     private var binding: ActivityTaskListBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +55,35 @@ class TaskListActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        customDialogForBackButton()
+    }
+
+    // Set up custom dialog when user click back button during taking the exercises
+    private fun customDialogForBackButton() {
+        val customDialog = Dialog(this)
+        // We need to create DialogCustomBack...because normal binding which we use here
+        // is not connected with our dialog!
+        // So here dialog custom confirmation is the name of the XML file, and we just have this
+        // binding keyword and we inflate with the layout inflater
+        val dialogBinding = DialogCustomBackButtonForExitBinding.inflate(layoutInflater)
+        customDialog.setContentView(dialogBinding.root)
+        // Only want to be able to cancel it when click either no or yes - not around it
+        customDialog.setCanceledOnTouchOutside(false)
+        dialogBinding.btnYes.setOnClickListener {
+            customDialog.dismiss() // Dialog will be dismissed
+            val intent = Intent(Intent.ACTION_MAIN)
+            intent.addCategory(Intent.CATEGORY_HOME)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+            finish()
+        }
+        dialogBinding.btnNo.setOnClickListener {
+            customDialog.dismiss()
+        }
+        customDialog.show()
+    }
+
     private fun setUpListOfDataIntoRecyclerView(
         taskList: ArrayList<TaskEntity>,
     ) {
@@ -65,7 +96,7 @@ class TaskListActivity : AppCompatActivity() {
             // number again, use my update record dialog percent to update ID
             // as well as the taskDao
             val taskAdapter = TaskAdapter(
-                taskList
+                taskList, this
             )
             // To display our content from database -> need LinearLayoutManager
             // Set up the RecyclerView -> items are going to be on top of each other
@@ -82,5 +113,9 @@ class TaskListActivity : AppCompatActivity() {
             binding?.rvTaskList?.visibility = View.GONE
             binding?.tvNoRecordsAvailable?.visibility = View.VISIBLE
         }
+    }
+
+    override fun onItemClick(position: Int, entity: TaskEntity) {
+        TODO("Not yet implemented")
     }
 }
