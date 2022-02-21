@@ -4,9 +4,12 @@ import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import pl.glownia.maciej.wygrajdzien.adapter.TaskAdapter
@@ -14,6 +17,7 @@ import pl.glownia.maciej.wygrajdzien.database.TaskApp
 import pl.glownia.maciej.wygrajdzien.database.TaskEntity
 import pl.glownia.maciej.wygrajdzien.databinding.ActivityTaskListBinding
 import pl.glownia.maciej.wygrajdzien.databinding.DialogCustomBackButtonForExitBinding
+import pl.glownia.maciej.wygrajdzien.utils.SwipeToEditCallback
 
 class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
     private var binding: ActivityTaskListBinding? = null
@@ -38,7 +42,7 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
             // With collect method, we now get the list of task entity items that are
             // inside of our database
             // It's going to give us all the entries that we have in our tasks table
-            // Check fetchAllPlaces method in TaskDao interface
+            // Check fetchAllTasks method in TaskDao interface
             /**
              * Which is a part of the coroutine class, just like to suspend keyword, it runs
              * the operation on a different thread, but with an additional feature of omitting
@@ -59,7 +63,7 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
         customDialogForBackButton()
     }
 
-    // Set up custom dialog when user click back button during taking the exercises
+    // Set up custom dialog when user click back button
     private fun customDialogForBackButton() {
         val customDialog = Dialog(this)
         // We need to create DialogCustomBack...because normal binding which we use here
@@ -113,9 +117,46 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
             binding?.rvTaskList?.visibility = View.GONE
             binding?.tvNoRecordsAvailable?.visibility = View.VISIBLE
         }
+
+        val editSwipeHandler = object : SwipeToEditCallback(this) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val adapter = binding?.rvTaskList?.adapter as TaskAdapter
+                // Send us to the task list activity screen and which can add it to activity
+                adapter.notifyEditItem(
+                    this@TaskListActivity,
+                    viewHolder.adapterPosition,
+                    ADD_TASK_ACTIVITY_REQUEST_CODE
+                )
+            }
+        }
+        // Use editSwipeHandler
+        val editItemTouchHelper = ItemTouchHelper(editSwipeHandler)
+        editItemTouchHelper.attachToRecyclerView(binding?.rvTaskList)
+
+        // Now, the activity that will get this information, needs to know about what it
+        // should change -> check notify method in adapter
     }
 
     override fun onItemClick(position: Int, entity: TaskEntity) {
-        TODO("Not yet implemented")
+        Toast.makeText(this, "Click -> onItemClick", Toast.LENGTH_SHORT).show()
+        val intent = Intent(
+            this@TaskListActivity, TaskDetailsActivity::class.java
+        )
+        // That is a little different of a topic, but just to know:
+        // If you want to store an object of a class, then you can store it in a serializable way as well
+        // But basically that is how we can pass the information
+        intent.putExtra(
+            EXTRA_TASK_DETAILS,
+            entity
+        )  // It was needed to add Serializable in TaskEntity -> check it
+        startActivity(intent)
+    }
+
+    // In TaskDetailsActivity we called main activity to take place detail
+    // Companion object variable, this static variable that we have here that we now
+    // can use and can see if it has this specific name, then do something with it
+    companion object {
+        private const val ADD_TASK_ACTIVITY_REQUEST_CODE = 1
+        internal const val EXTRA_TASK_DETAILS = "extra_place_details"
     }
 }
