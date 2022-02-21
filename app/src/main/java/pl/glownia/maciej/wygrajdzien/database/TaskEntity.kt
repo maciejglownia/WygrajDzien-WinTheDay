@@ -16,7 +16,7 @@ data class TaskEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val title: String = "",
-    val urlImg: String = ""
+    val image: String = ""
 ) : Serializable // It allows us pass it to our intent
 
 // If you to this Parcelable you need to implement methods and make variables nullable, so

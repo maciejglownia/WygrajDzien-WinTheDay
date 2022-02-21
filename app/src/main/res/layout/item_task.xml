@@ -46,7 +46,7 @@
                     android:id="@+id/tvTaskTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="?attr/colorOnSecondary"
+                    android:textColor="?attr/colorPrimary"
                     android:textSize="@dimen/item_task_title_textSize"
                     android:textStyle="bold"
                     tools:text="Name" />
