@@ -1,9 +1,14 @@
 package pl.glownia.maciej.wygrajdzien.adapter
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import pl.glownia.maciej.wygrajdzien.activities.AddTaskToDoActivity
+import pl.glownia.maciej.wygrajdzien.activities.TaskListActivity
 import pl.glownia.maciej.wygrajdzien.database.TaskEntity
 import pl.glownia.maciej.wygrajdzien.databinding.ItemTaskBinding
 
@@ -11,6 +16,7 @@ import pl.glownia.maciej.wygrajdzien.databinding.ItemTaskBinding
 // We need now to pass into a list that we want to use -> an array list in this case
 // TaskEntity is our model, which we are also using for our database
 class TaskAdapter(
+    private val context: Context,
     private val tasks: ArrayList<TaskEntity>,
     private val onClickListener: OnItemClickListener
 ) :
@@ -66,6 +72,23 @@ class TaskAdapter(
         // It is going to be data as title of task and picture of category
         holder.tvTaskTitle.text = item.title
         // TODO("implement function to take drawable from database")
+    }
+
+    // Edit the added task detail and pass the existing details through intent
+    // If method below doesn't exist after swipe view to edit, view stays green with edit icon
+    // and also you can do with rest of views
+    fun notifyEditItem(activity: Activity, position: Int, requestCode: Int) {
+        val intent = Intent(context, AddTaskToDoActivity::class.java)
+        intent.putExtra(TaskListActivity.EXTRA_TASK_DETAILS, tasks[position])
+        activity.startActivityForResult(
+            intent,
+            requestCode
+        ) // Activity is started with request code
+        // If you make any changes to an adapter or to your recycler, if you want to make sure
+        // that your adapter is notified about those changes, and that's exactly what we do here
+        // Otherwise, you will not see any changes until you restart your application or until
+        // you close the application and started again
+        notifyItemChanged(position)
     }
 
     // So item size will return an integer, which is what we need to return here
