@@ -21,7 +21,7 @@ class TaskDetailsActivity : AppCompatActivity() {
 
         // Here you retrieve data
         val taskDetails =
-            intent.getSerializableExtra(TaskListActivity.EXTRA_PLACE_DETAILS) as TaskEntity
+            intent.getSerializableExtra(TaskListActivity.EXTRA_TASK_DETAILS) as TaskEntity
 
         // Need to set here, so depends on which place we click, in HappyPlaceDetail Activity
         // toolbar title will be same as title of our place

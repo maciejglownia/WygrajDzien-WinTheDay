@@ -100,7 +100,7 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
             // number again, use my update record dialog percent to update ID
             // as well as the taskDao
             val taskAdapter = TaskAdapter(
-                taskList, this
+                this, taskList, this
             )
             // To display our content from database -> need LinearLayoutManager
             // Set up the RecyclerView -> items are going to be on top of each other
@@ -157,6 +157,6 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
     // can use and can see if it has this specific name, then do something with it
     companion object {
         private const val ADD_TASK_ACTIVITY_REQUEST_CODE = 1
-        internal const val EXTRA_TASK_DETAILS = "extra_place_details"
+        internal const val EXTRA_TASK_DETAILS = "extra_task_details"
     }
 }
