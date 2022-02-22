@@ -2,6 +2,7 @@ package pl.glownia.maciej.wygrajdzien.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import pl.glownia.maciej.wygrajdzien.R
 import pl.glownia.maciej.wygrajdzien.database.TaskEntity
 import pl.glownia.maciej.wygrajdzien.databinding.ActivityTaskDetailsBinding
 
@@ -23,15 +24,27 @@ class TaskDetailsActivity : AppCompatActivity() {
         val taskDetails =
             intent.getSerializableExtra(TaskListActivity.EXTRA_TASK_DETAILS) as TaskEntity
 
-        // Need to set here, so depends on which place we click, in HappyPlaceDetail Activity
-        // toolbar title will be same as title of our place
+        // Need to set here, so depends on which task we click, in TaskDetailsActivity
+        // toolbar title will be same as title of our task
         if (supportActionBar != null) {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.title = taskDetails.title
         }
         // Set up view based on our data
-        // TODO ("set up image")
+        // So, depends what number is store in database for specific record this image will appear
+        when (taskDetails.image) {
+            "1" -> {
+                binding?.ivTaskCategoryImage?.setImageResource(R.drawable.sport)
+            }
+            "2" -> {
+                binding?.ivTaskCategoryImage?.setImageResource(R.drawable.bulb_brain)
+            }
+            else -> {
+                binding?.ivTaskCategoryImage?.setImageResource(R.drawable.money)
+            }
+        }
 
+        // Below an image of category user can see extra information or sentence to motivate them
         val introduction =
             "Postawione przed sobą zadanie pozwala Ci określić, co należy " +
                     "teraz zrobić, aby osiągnąć zamierzony cel. " +
