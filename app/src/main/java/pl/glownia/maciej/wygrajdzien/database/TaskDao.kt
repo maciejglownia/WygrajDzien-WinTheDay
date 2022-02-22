@@ -47,11 +47,11 @@ interface TaskDao {
      */
     @Query("SELECT * FROM `tasks-table`")
     // Make sure Flow is an interface kotlinx.coroutines.flow
-    fun fetchAllPlaces(): Flow<List<TaskEntity>>
+    fun fetchAllTasks(): Flow<List<TaskEntity>>
 
     // Need to pass the ID that I want to specifically fetch and I'm going to select start from
     // And here I need to define where the ID is equal to our ID
-    // ! This will allow us to get an individual place by the uniquely identifiable ID
+    // ! This will allow us to get an individual task by the uniquely identifiable ID
     @Query("SELECT * FROM `tasks-table` WHERE id =:id")
-    fun fetchAllPlacesById(id: Int): Flow<TaskEntity>
+    fun fetchAllTasksById(id: Int): Flow<TaskEntity>
 }
