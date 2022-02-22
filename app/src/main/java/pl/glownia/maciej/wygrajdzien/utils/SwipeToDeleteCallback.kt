@@ -8,18 +8,20 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import pl.glownia.maciej.wygrajdzien.R
 
+/**
+ * Similar to SwipeToDeleteCallback but with some changes
+ */
 // Also is good to check explanation of this class at link below.
 // https://medium.com/@kitek/recyclerview-swipe-to-delete-easier-than-you-thought-cff67ff5e5f6
-abstract class SwipeToEditCallback(context: Context) :
-    ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+abstract class SwipeToDeleteCallback(context: Context) :
+ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT){
 
-    private val editIcon = ContextCompat.getDrawable(context, R.drawable.ic_edit_white_24dp)
-    private val intrinsicWidth = editIcon!!.intrinsicWidth
-    private val intrinsicHeight = editIcon!!.intrinsicHeight
+    private val deleteIcon = ContextCompat.getDrawable(context, R.drawable.ic_delete_white_24dp)
+    private val intrinsicWidth = deleteIcon!!.intrinsicWidth
+    private val intrinsicHeight = deleteIcon!!.intrinsicHeight
     private val background = ColorDrawable()
-    private val backgroundColor = Color.parseColor("#24AE05")
-    private val clearPaint = Paint().apply {
-        xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
+    private val backgroundColor = Color.parseColor("#F44336")
+    private val clearPaint = Paint().apply { xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
     }
 
     override fun getMovementFlags(
@@ -47,7 +49,7 @@ abstract class SwipeToEditCallback(context: Context) :
         return false
     }
 
-    // Draw edit view, so...
+    // Draw delete view, so...
     // Set the background to the background color and move things around a little bit.
     // Draw the green added background, then calculate the position of the edit icon
     // so that it always is at the right spot
@@ -65,48 +67,35 @@ abstract class SwipeToEditCallback(context: Context) :
         val itemHeight = itemView.bottom - itemView.top
         val isCanceled = dX == 0f && !isCurrentlyActive
 
-        if (isCanceled) {
+        if(isCanceled) {
             clearCanvas(
-                c, itemView.left + dX, itemView.top.toFloat(),
-                itemView.left.toFloat(), itemView.bottom.toFloat()
-            )
-            super.onChildDrawOver(
-                c,
-                recyclerView,
-                viewHolder,
-                dX,
-                dY,
-                actionState,
-                isCurrentlyActive
-            )
+                c, itemView.right + dX, itemView.top.toFloat(),
+                itemView.right.toFloat(), itemView.bottom.toFloat())
+            super.onChildDrawOver(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+        return
         }
 
-        // Draw the green edit background
+        // Draw the red delete background
         background.color = backgroundColor
-        background.setBounds(
-            itemView.left + dX.toInt(),
-            itemView.top,
-            itemView.left,
-            itemView.bottom
-        )
+        background.setBounds(itemView.right + dX.toInt(), itemView.top, itemView.right, itemView.bottom)
         background.draw(c)
 
-        // Calculate position of edit icon
-        val editIconTop = itemView.top + (itemHeight - intrinsicHeight) / 2
-        val editIconMargin = (itemHeight - intrinsicHeight)
-        val editIconLeft = itemView.left + editIconMargin - intrinsicWidth
-        val editIconRight = itemView.left + editIconMargin
-        val editIconBottom = editIconTop + intrinsicHeight
+        // Calculate position of delete icon
+        val deleteIconTop = itemView.top + (itemHeight - intrinsicHeight) / 2
+        val deleteIconMargin = (itemHeight - intrinsicHeight) / 2
+        val deleteIconLeft = itemView.right - deleteIconMargin - intrinsicWidth
+        val deleteIconRight = itemView.right - deleteIconMargin
+        val deleteIconBottom = deleteIconTop + intrinsicHeight
 
         // Draw the delete icon
-        editIcon!!.setBounds(editIconLeft, editIconTop, editIconRight, editIconBottom)
-        editIcon.draw(c)
+        deleteIcon!!.setBounds(deleteIconLeft, deleteIconTop, deleteIconRight, deleteIconBottom)
+        deleteIcon.draw(c)
 
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
     }
 
-    private fun clearCanvas(c: Canvas, left: Float, top: Float, right: Float, bottom: Float) {
-        c.drawRect(left, top, right, bottom, clearPaint)
+        private fun clearCanvas(c: Canvas?, left: Float, top: Float, right: Float, bottom: Float) {
+            c?.drawRect(left, top, right, bottom, clearPaint)
     }
     // Now, next thing we need to do is we need to bind this feature
 }
