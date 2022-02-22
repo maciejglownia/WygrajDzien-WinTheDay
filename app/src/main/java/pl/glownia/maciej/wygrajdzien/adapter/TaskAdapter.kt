@@ -12,13 +12,15 @@ import pl.glownia.maciej.wygrajdzien.activities.TaskListActivity
 import pl.glownia.maciej.wygrajdzien.database.TaskEntity
 import pl.glownia.maciej.wygrajdzien.databinding.ItemTaskBinding
 
+
 // We can now use here in < > -> TaskAdapter.ViewHolder, which is this class that we created below
 // We need now to pass into a list that we want to use -> an array list in this case
 // TaskEntity is our model, which we are also using for our database
 class TaskAdapter(
     private val context: Context,
     private val tasks: ArrayList<TaskEntity>,
-    private val onClickListener: OnItemClickListener
+    private val onClickListener: OnItemClickListener,
+    private val deleteListener: (id: Int) -> Unit
 ) :
     RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
@@ -89,6 +91,14 @@ class TaskAdapter(
         // Otherwise, you will not see any changes until you restart your application or until
         // you close the application and started again
         notifyItemChanged(position)
+    }
+
+    // Need to pass also in TaskAdapter class above in ( ) brackets
+    // Remove specific position
+    fun removeAt(position: Int) {
+        val task = tasks[position]
+        deleteListener.invoke(task.id)
+        notifyItemRemoved(position)
     }
 
     // So item size will return an integer, which is what we need to return here
