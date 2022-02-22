@@ -14,9 +14,11 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import pl.glownia.maciej.wygrajdzien.adapter.TaskAdapter
 import pl.glownia.maciej.wygrajdzien.database.TaskApp
+import pl.glownia.maciej.wygrajdzien.database.TaskDao
 import pl.glownia.maciej.wygrajdzien.database.TaskEntity
 import pl.glownia.maciej.wygrajdzien.databinding.ActivityTaskListBinding
 import pl.glownia.maciej.wygrajdzien.databinding.DialogCustomBackButtonForExitBinding
+import pl.glownia.maciej.wygrajdzien.utils.SwipeToDeleteCallback
 import pl.glownia.maciej.wygrajdzien.utils.SwipeToEditCallback
 
 class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
@@ -52,9 +54,9 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
              * It will do that automatically because we're using flow here
              */
             // All tasks -> we get them in form of a list so we can see our List<TaskEntity>
-            taskDao.fetchAllPlaces().collect {
+            taskDao.fetchAllTasks().collect {
                 val list = ArrayList(it) // IMPORTANT cause here is a list and we need an ArrayList
-                setUpListOfDataIntoRecyclerView(list)
+                setUpListOfDataIntoRecyclerView(list, taskDao)
             }
         }
     }
@@ -90,6 +92,7 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
 
     private fun setUpListOfDataIntoRecyclerView(
         taskList: ArrayList<TaskEntity>,
+        taskDao: TaskDao
     ) {
         // Set up the data
         if (taskList.isNotEmpty()) {
@@ -100,8 +103,12 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
             // number again, use my update record dialog percent to update ID
             // as well as the taskDao
             val taskAdapter = TaskAdapter(
-                this, taskList, this
-            )
+                this,
+                taskList,
+                this
+            ) { deleteId ->
+                delete(deleteId, taskDao)
+            }
             // To display our content from database -> need LinearLayoutManager
             // Set up the RecyclerView -> items are going to be on top of each other
             binding?.rvTaskList?.layoutManager = LinearLayoutManager(this)
@@ -135,13 +142,33 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
 
         // Now, the activity that will get this information, needs to know about what it
         // should change -> check notify method in adapter
+
+        val deleteSwipeHandler = object : SwipeToDeleteCallback(this) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val adapter = binding?.rvTaskList?.adapter as TaskAdapter
+                // Use adapter to delete record
+                adapter.removeAt(viewHolder.adapterPosition)
+            }
+        }
+        // Use deleteSwipeHandler
+        val deleteItemTouchHelper = ItemTouchHelper(deleteSwipeHandler)
+        deleteItemTouchHelper.attachToRecyclerView(binding?.rvTaskList)
+    }
+
+    private fun delete(id: Int, taskDao: TaskDao) {
+        lifecycleScope.launch {
+            taskDao.delete(TaskEntity(id))
+            Toast.makeText(
+                applicationContext,
+                "Zadanie zostało usunięte.", // Task has been deleted
+                Toast.LENGTH_LONG
+            ).show()
+        }
     }
 
     override fun onItemClick(position: Int, entity: TaskEntity) {
         Toast.makeText(this, "Click -> onItemClick", Toast.LENGTH_SHORT).show()
-        val intent = Intent(
-            this@TaskListActivity, TaskDetailsActivity::class.java
-        )
+        val intent = Intent(this@TaskListActivity, TaskDetailsActivity::class.java)
         // That is a little different of a topic, but just to know:
         // If you want to store an object of a class, then you can store it in a serializable way as well
         // But basically that is how we can pass the information
@@ -152,7 +179,7 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
         startActivity(intent)
     }
 
-    // In TaskDetailsActivity we called main activity to take place detail
+    // In TaskDetailsActivity we called main activity to take task detail
     // Companion object variable, this static variable that we have here that we now
     // can use and can see if it has this specific name, then do something with it
     companion object {
