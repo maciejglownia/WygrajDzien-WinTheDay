@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import pl.glownia.maciej.wygrajdzien.R
 import pl.glownia.maciej.wygrajdzien.activities.AddTaskToDoActivity
 import pl.glownia.maciej.wygrajdzien.activities.TaskListActivity
 import pl.glownia.maciej.wygrajdzien.database.TaskEntity
@@ -73,7 +74,18 @@ class TaskAdapter(
 
         // It is going to be data as title of task and picture of category
         holder.tvTaskTitle.text = item.title
-        // TODO("implement function to take drawable from database")
+        // Check which number as String is in database and set up proper image
+        when (item.image) {
+            "1" -> {
+                holder.ivTaskCategoryImage.setImageResource(R.drawable.sport)
+            }
+            "2" -> {
+                holder.ivTaskCategoryImage.setImageResource(R.drawable.bulb_brain)
+            }
+            else -> {
+                holder.ivTaskCategoryImage.setImageResource(R.drawable.money)
+            }
+        }
     }
 
     // Edit the added task detail and pass the existing details through intent
