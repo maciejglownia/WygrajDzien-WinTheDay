@@ -1,7 +1,6 @@
 package pl.glownia.maciej.wygrajdzien.activities
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -19,6 +18,7 @@ import pl.glownia.maciej.wygrajdzien.databinding.ActivityAddTasksToDoBinding
 class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
     private var binding: ActivityAddTasksToDoBinding? = null
     private var mTaskDetails: TaskEntity? = null
+    private var mChosenCategoryImage: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,9 +51,8 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
         // toolbar to name: edit task and put data to rows, so you can edit it
         if (mTaskDetails != null) {
             supportActionBar?.title = "Edytuj zadanie" // Edit Task
-            binding?.etTaskTitle?.setText((mTaskDetails!!.title))
-            // TODO picture
-            binding?.btnSave?.text = "Zaktualizuj" // Update
+            val update = "Zaktualizuj" // Update
+            binding?.btnSave?.text = update
         }
     }
 
@@ -63,14 +62,17 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
             R.id.cvFirstCategoryField -> {
                 binding?.ivTaskChosenCategory?.setImageResource(R.drawable.sport)
                 binding?.ivTaskChosenCategory?.visibility = View.VISIBLE
+                mChosenCategoryImage = 1
             }
             R.id.cvSecondCategoryField -> {
                 binding?.ivTaskChosenCategory?.setImageResource(R.drawable.bulb_brain)
                 binding?.ivTaskChosenCategory?.visibility = View.VISIBLE
+                mChosenCategoryImage = 2
             }
             R.id.cvThirdCategoryField -> {
                 binding?.ivTaskChosenCategory?.setImageResource(R.drawable.money)
                 binding?.ivTaskChosenCategory?.visibility = View.VISIBLE
+                mChosenCategoryImage = 3
             }
             R.id.btnSave -> {
                 when {
@@ -90,11 +92,7 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
                     }
                     else -> {
                         // If a task in database is null add, if exists update it
-                        Toast.makeText(
-                            this,
-                            "It is working now! - checking completed", // It is to check if it works
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        //Toast.makeText( this, "It works", Toast.LENGTH_SHORT).show()
                         if (mTaskDetails == null) {
                             addTask(taskDao)
                         } else {
@@ -115,12 +113,12 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
     // Add all details, change them to the String and save it in the database
     private fun addTask(taskDao: TaskDao) {
         val taskTitle = binding?.etTaskTitle?.text.toString()
-        val categoryImage = binding?.ivTaskChosenCategory.toString()
+        val categoryImageNumber = giveChosenCategoryNumberToPass()
         // Insert data (need to do in the background) -> lifecycleScope
         lifecycleScope.launch {
             taskDao.insert(
                 TaskEntity(
-                    title = taskTitle, image = categoryImage
+                    title = taskTitle, image = categoryImageNumber
                 )
             )
             // Let user know what happened
@@ -135,12 +133,12 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
     // Update all details, change them to the String and save it in the database
     private fun updateTask(id: Int, taskDao: TaskDao) {
         val taskTitle = binding?.etTaskTitle?.text.toString()
-        val categoryImage = binding?.ivTaskChosenCategory.toString()
+        val categoryImageNumber = giveChosenCategoryNumberToPass()
 
         lifecycleScope.launch {
             taskDao.update(
                 TaskEntity(
-                    id = id, title = taskTitle, image = categoryImage
+                    id = id, title = taskTitle, image = categoryImageNumber
                 )
             )
             // Let user know what happened
@@ -150,5 +148,22 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.LENGTH_LONG
             ).show()
         }
+    }
+
+    // Depends on which category(image) user choose it has unique number and this number
+    // is passing to database as String
+    private fun giveChosenCategoryNumberToPass(): String {
+        val chosenCategoryNumberToPass: String = when (mChosenCategoryImage) {
+            1 -> {
+                "1"
+            }
+            2 -> {
+                "2"
+            }
+            else -> {
+                "3"
+            }
+        }
+        return chosenCategoryNumberToPass
     }
 }
