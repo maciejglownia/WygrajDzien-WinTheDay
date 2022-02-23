@@ -3,6 +3,8 @@ package pl.glownia.maciej.wygrajdzien.activities
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import pl.glownia.maciej.wygrajdzien.R
 import pl.glownia.maciej.wygrajdzien.adapter.TaskAdapter
 import pl.glownia.maciej.wygrajdzien.database.TaskApp
 import pl.glownia.maciej.wygrajdzien.database.TaskDao
@@ -28,7 +31,11 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityTaskListBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+        setSupportActionBar(binding?.toolbarAddTaskToDo)
 
+        if (supportActionBar != null) {
+            supportActionBar?.title = "Wygraj dzień"
+        }
         // Set up taskDao using TaskApp
         // This one here db gets database object and use the taskDao, which is
         // an abstract function that we created inside of our room database -> TaskDatabase.kt
@@ -63,6 +70,25 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
 
     override fun onBackPressed() {
         customDialogForBackButton()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present
+        menuInflater.inflate(R.menu.settings_menu, menu)
+        return true
+    }
+
+    // After click on setting icon it will take user to the settings activity
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.settingsBtn -> {
+                // Toast.makeText(applicationContext, "Click on settings", Toast.LENGTH_LONG).show()
+                val intent = Intent(this@TaskListActivity, SettingsActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     // Set up custom dialog when user click back button
@@ -186,4 +212,5 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
         private const val ADD_TASK_ACTIVITY_REQUEST_CODE = 1
         internal const val EXTRA_TASK_DETAILS = "extra_task_details"
     }
+//        }
 }
