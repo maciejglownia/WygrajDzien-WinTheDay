@@ -33,7 +33,7 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
         binding?.toolbarAddTaskToDo?.setNavigationOnClickListener {
             onBackPressed()
         }
-        // Set up save button
+        // Set up save button and category items to click
         binding?.btnSave?.setOnClickListener(this)
         binding?.cvFirstCategoryField?.setOnClickListener(this)
         binding?.cvSecondCategoryField?.setOnClickListener(this)
