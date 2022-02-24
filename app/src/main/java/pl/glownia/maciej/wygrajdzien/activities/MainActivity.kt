@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        // Go to the next activity where is task list and possible to ask a new task
+        // Go to the next activity where is task list and possibility to add a new task and more
         binding?.btnStart?.setOnClickListener {
             val intent = Intent(this@MainActivity, TaskListActivity::class.java)
             startActivity(intent)
