@@ -22,4 +22,6 @@
     <string name="rate_field">Oceń aplikację</string>
     <string name="rate_icon">rate_icon</string>
     <string name="info_about">O aplikacji</string>
+    <string name="philosophy">philosophy</string>
+    <string name="try_my_Stoik_Cytat_Quiz_App">Sprawdź mój Stoik Cytat Quiz</string>
 </resources>

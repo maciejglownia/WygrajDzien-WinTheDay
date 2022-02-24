@@ -7,28 +7,23 @@
     android:orientation="vertical"
     tools:context=".activities.SettingsActivity">
 
-    <TextView
-        android:id="@+id/tv_settings"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarSettings"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
-        android:gravity="center"
-        android:text="@string/settings_in_settings"
-        android:textColor="?android:textColorPrimary"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/CustomToolbarStyle" />
 
     <LinearLayout
-        android:id="@+id/ll_contact"
+        android:id="@+id/llContact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
-        android:padding="15dp">
+        android:padding="18dp">
 
         <ImageView
-            android:id="@+id/iv_contact"
+            android:id="@+id/ivContact"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
@@ -37,7 +32,7 @@
             android:src="@drawable/contact" />
 
         <TextView
-            android:id="@+id/tv_contact"
+            android:id="@+id/tvContact"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
@@ -50,15 +45,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_privacy_policy"
+        android:id="@+id/llPrivacyPolicy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="15dp">
+        android:padding="18dp">
 
         <ImageView
-            android:id="@+id/iv_privacy_policy"
+            android:id="@+id/ivPrivacyPolicy"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
@@ -67,7 +62,7 @@
             android:src="@drawable/privacy" />
 
         <TextView
-            android:id="@+id/tv_privacy_policy"
+            android:id="@+id/tvPrivacyPolicy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
@@ -79,15 +74,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_rate"
+        android:id="@+id/llRate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="15dp">
+        android:padding="18dp">
 
         <ImageView
-            android:id="@+id/iv_rate"
+            android:id="@+id/ivRate"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
@@ -96,7 +91,7 @@
             android:src="@drawable/rate" />
 
         <TextView
-            android:id="@+id/tv_rate"
+            android:id="@+id/tvRate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
@@ -108,15 +103,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_about"
+        android:id="@+id/llAbout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="15dp">
+        android:padding="18dp">
 
         <ImageView
-            android:id="@+id/iv_about"
+            android:id="@+id/ivAbout"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
@@ -125,13 +120,42 @@
             android:src="@drawable/about" />
 
         <TextView
-            android:id="@+id/tv_about"
+            android:id="@+id/tvAbout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:text="@string/info_about"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPhilosophy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/ivPhilosophy"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/philosophy"
+            android:src="@drawable/philosophy" />
+
+        <TextView
+            android:id="@+id/tvPhilosophy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/try_my_Stoik_Cytat_Quiz_App"
             android:textColor="?android:textColorPrimary"
             android:textSize="18sp" />
     </LinearLayout>

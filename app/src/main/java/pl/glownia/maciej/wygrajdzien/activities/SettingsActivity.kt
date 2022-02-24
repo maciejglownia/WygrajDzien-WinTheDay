@@ -16,6 +16,15 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+        setSupportActionBar(binding?.toolbarSettings)
+
+        if (supportActionBar != null) {
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.title = "Ustawienia"
+        }
+        binding?.toolbarSettings?.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
         // Set up sending mail to developer
         binding?.llContact?.setOnClickListener {
@@ -55,6 +64,15 @@ class SettingsActivity : AppCompatActivity() {
         // Set up button to display info about app to user as dialog
         binding?.llAbout?.setOnClickListener {
             showDescriptionDialog()
+        }
+
+        // Set up button to open my another application in Google Play Store -> Stoik Cytat Quiz
+        binding?.llPhilosophy?.setOnClickListener {
+            val browserIntent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://play.google.com/store/apps/details?id=pl.glownia.maciej.stoikcytatquiz&hl=pl")
+            )
+            startActivity(browserIntent)
         }
     }
 
