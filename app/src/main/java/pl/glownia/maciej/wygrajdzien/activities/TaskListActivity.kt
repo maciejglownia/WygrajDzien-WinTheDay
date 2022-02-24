@@ -23,9 +23,14 @@ import pl.glownia.maciej.wygrajdzien.databinding.ActivityTaskListBinding
 import pl.glownia.maciej.wygrajdzien.databinding.DialogCustomBackButtonForExitBinding
 import pl.glownia.maciej.wygrajdzien.utils.SwipeToDeleteCallback
 import pl.glownia.maciej.wygrajdzien.utils.SwipeToEditCallback
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
     private var binding: ActivityTaskListBinding? = null
+
+    // Here set up calendar
+    private var calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +71,8 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
                 setUpListOfDataIntoRecyclerView(list, taskDao)
             }
         }
+        // Here a date will be updating automatically
+        updateDateInView()
     }
 
     override fun onBackPressed() {
@@ -116,6 +123,13 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
         customDialog.show()
     }
 
+    // This will take care of put date to row with date
+    private fun updateDateInView() {
+        val myFormat = "dd.MM.yyyy"
+        val sdf = SimpleDateFormat(myFormat, Locale.getDefault())
+        binding?.tvDate?.text = sdf.format(calendar.time).toString() // Setting text as String
+    }
+
     private fun setUpListOfDataIntoRecyclerView(
         taskList: ArrayList<TaskEntity>,
         taskDao: TaskDao
@@ -145,8 +159,9 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
             binding?.rvTaskList?.visibility = View.VISIBLE
             // Then if there is data, sentence no records are available should be set to gone
             binding?.tvNoRecordsAvailable?.visibility = View.GONE
-            // Set up text with info for user how to deit and delete task
-            binding?.tvSwipeHint?.text = "Swipe >>>>> to edit \n <<<<< to delete"
+            // Set up text with info for user how to edit and delete task
+            val swipe = "Swipe >>>>> to edit \n <<<<< to delete"
+            binding?.tvSwipeHint?.text = swipe
             binding?.tvSwipeHint?.visibility = View.VISIBLE
         } else {
             // In other way opposite happens
