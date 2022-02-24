@@ -26,6 +26,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolbarTaskDetails">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clInformationAndMotivationLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -47,14 +48,45 @@
                 android:layout_marginStart="@dimen/detail_screen_description_margin"
                 android:layout_marginTop="@dimen/detail_screen_description_margin"
                 android:layout_marginEnd="@dimen/detail_screen_description_margin"
+                android:gravity="center|bottom"
+                android:text="@string/short_description"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="@dimen/detail_screen_description_text_size"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text="@string/short_description"
-                android:gravity="center"
-                app:layout_constraintHorizontal_bias="0.533"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivTaskCategoryImage"/>
+                app:layout_constraintTop_toBottomOf="@+id/ivTaskCategoryImage" />
+
+            <TextView
+                android:id="@+id/tvQuote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/detail_screen_description_margin"
+                android:layout_marginTop="@dimen/detail_distance_between_description_and_quote"
+                android:layout_marginEnd="@dimen/detail_screen_description_margin"
+                android:gravity="center"
+                android:text="@string/quote"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="@dimen/detail_screen_description_text_size"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@id/tvAuthor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvShortIntroduction" />
+
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/detail_screen_description_margin"
+                android:layout_marginEnd="@dimen/detail_screen_description_margin"
+                android:gravity="center"
+                android:text="@string/author"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="@dimen/detail_screen_description_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvQuote" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

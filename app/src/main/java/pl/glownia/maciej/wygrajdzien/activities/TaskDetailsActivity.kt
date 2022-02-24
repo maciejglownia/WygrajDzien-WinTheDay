@@ -46,9 +46,22 @@ class TaskDetailsActivity : AppCompatActivity() {
 
         // Below an image of category user can see extra information or sentence to motivate them
         val introduction =
-            "Postawione przed sobą zadanie pozwala Ci określić, co należy " +
-                    "teraz zrobić, aby osiągnąć zamierzony cel. " +
-                    "\nDzięki skutecznej realizacji zadań \n >>> WYGRYWANIU <<<  \nna pewno tego dokonasz. \n\n Powodzenia!"
+            "Postawione przed sobą zadania pozwalą Ci określić, " +
+                    "jakie czynności należy wykonać \n w tej chwili, " +
+                    "aby osiągnąć zamierzony cel. " +
+                    "\nDzięki skutecznej realizacji zadań \n >>> WYGRYWANIU <<<  \nna pewno tego dokonasz."
         binding?.tvShortIntroduction?.text = introduction
+
+        // Below an image of category user can see extra information or sentence to motivate them
+        val quote =
+            "''Gdy nie wiesz, do którego portu płyniesz, \nżaden wiatr nie jest dobry.''"
+        binding?.tvQuote?.text = quote
+
+        // Below an image of category user can see extra information or sentence to motivate them
+        val author = "\n\t\t\t\t\t\t\t\t\tSeneka"
+        binding?.tvAuthor?.text = author
+
     }
+
+
 }
