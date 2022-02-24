@@ -45,4 +45,6 @@
     <dimen name="detail_screen_location_marginTop">16dp</dimen>
     <dimen name="detail_screen_location_text_size">18sp</dimen>
     <dimen name="welcome_text_margin">16dp</dimen>
+    <dimen name="margin_bottom_for_info_about_swiping">100dp</dimen>
+    <dimen name="text_size_for_info_about_swiping">18sp</dimen>
 </resources>

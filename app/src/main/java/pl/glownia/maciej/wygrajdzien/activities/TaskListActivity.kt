@@ -145,10 +145,14 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
             binding?.rvTaskList?.visibility = View.VISIBLE
             // Then if there is data, sentence no records are available should be set to gone
             binding?.tvNoRecordsAvailable?.visibility = View.GONE
+            // Set up text with info for user how to deit and delete task
+            binding?.tvSwipeHint?.text = "Swipe >>>>> to edit \n <<<<< to delete"
+            binding?.tvSwipeHint?.visibility = View.VISIBLE
         } else {
             // In other way opposite happens
             binding?.rvTaskList?.visibility = View.GONE
             binding?.tvNoRecordsAvailable?.visibility = View.VISIBLE
+            binding?.tvSwipeHint?.visibility = View.GONE
         }
 
         val editSwipeHandler = object : SwipeToEditCallback(this) {

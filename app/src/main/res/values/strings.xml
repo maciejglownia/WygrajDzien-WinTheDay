@@ -24,4 +24,5 @@
     <string name="info_about">O aplikacji</string>
     <string name="philosophy">philosophy</string>
     <string name="try_my_Stoik_Cytat_Quiz_App">Sprawdź mój Stoik Cytat Quiz</string>
+    <string name="info_about_swiping">infoAboutSwiping</string>
 </resources>
