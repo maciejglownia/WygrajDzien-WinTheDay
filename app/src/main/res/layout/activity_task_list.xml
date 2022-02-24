@@ -10,15 +10,36 @@
         android:id="@+id/toolbarAddTaskToDo"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:theme="@style/CustomToolbarStyle" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbarAddTaskToDo">
+
+        <LinearLayout
+            android:id="@+id/llTaskListWithDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/date_margin"
+                android:gravity="center"
+                android:text="@string/dateOfTasks"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/date_text_size" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTaskList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                tools:visibility="visible" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvNoRecordsAvailable"
@@ -41,14 +62,6 @@
             android:textSize="@dimen/text_size_for_info_about_swiping"
             android:textStyle="italic"
             android:visibility="visible"
-            tools:visibility="visible" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvTaskList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            app:layout_constraintTop_toBottomOf="parent"
             tools:visibility="visible" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
