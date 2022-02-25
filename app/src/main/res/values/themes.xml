@@ -13,6 +13,7 @@
         <item name="android:statusBarColor">@color/dark_green</item>
         <!-- Customize your theme here. -->
     </style>
+
     <style name="CustomToolbarStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:textColorPrimary">@color/white_color</item>
         <item name="android:colorControlNormal">@color/white_color</item>

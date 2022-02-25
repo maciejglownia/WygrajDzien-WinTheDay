@@ -14,14 +14,15 @@ import pl.glownia.maciej.wygrajdzien.R
 // Also is good to check explanation of this class at link below.
 // https://medium.com/@kitek/recyclerview-swipe-to-delete-easier-than-you-thought-cff67ff5e5f6
 abstract class SwipeToDeleteCallback(context: Context) :
-ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT){
+    ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
 
     private val deleteIcon = ContextCompat.getDrawable(context, R.drawable.ic_delete_white_24dp)
     private val intrinsicWidth = deleteIcon!!.intrinsicWidth
     private val intrinsicHeight = deleteIcon!!.intrinsicHeight
     private val background = ColorDrawable()
     private val backgroundColor = Color.parseColor("#F44336")
-    private val clearPaint = Paint().apply { xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
+    private val clearPaint = Paint().apply {
+        xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
     }
 
     override fun getMovementFlags(
@@ -67,17 +68,31 @@ ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT){
         val itemHeight = itemView.bottom - itemView.top
         val isCanceled = dX == 0f && !isCurrentlyActive
 
-        if(isCanceled) {
+        if (isCanceled) {
             clearCanvas(
                 c, itemView.right + dX, itemView.top.toFloat(),
-                itemView.right.toFloat(), itemView.bottom.toFloat())
-            super.onChildDrawOver(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-        return
+                itemView.right.toFloat(), itemView.bottom.toFloat()
+            )
+            super.onChildDrawOver(
+                c,
+                recyclerView,
+                viewHolder,
+                dX,
+                dY,
+                actionState,
+                isCurrentlyActive
+            )
+            return
         }
 
         // Draw the red delete background
         background.color = backgroundColor
-        background.setBounds(itemView.right + dX.toInt(), itemView.top, itemView.right, itemView.bottom)
+        background.setBounds(
+            itemView.right + dX.toInt(),
+            itemView.top,
+            itemView.right,
+            itemView.bottom
+        )
         background.draw(c)
 
         // Calculate position of delete icon
@@ -94,8 +109,8 @@ ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT){
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
     }
 
-        private fun clearCanvas(c: Canvas?, left: Float, top: Float, right: Float, bottom: Float) {
-            c?.drawRect(left, top, right, bottom, clearPaint)
+    private fun clearCanvas(c: Canvas?, left: Float, top: Float, right: Float, bottom: Float) {
+        c?.drawRect(left, top, right, bottom, clearPaint)
     }
     // Now, next thing we need to do is we need to bind this feature
 }

@@ -51,6 +51,7 @@ class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {
         // toolbar to name: edit task and put data to rows, so you can edit it
         if (mTaskDetails != null) {
             supportActionBar?.title = "Edytuj zadanie" // Edit Task
+            binding?.etTaskTitle?.setText((mTaskDetails!!.title))
             val update = "Zaktualizuj" // Update
             binding?.btnSave?.text = update
         }

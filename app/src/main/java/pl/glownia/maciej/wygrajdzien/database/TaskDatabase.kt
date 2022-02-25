@@ -1,7 +1,9 @@
 package pl.glownia.maciej.wygrajdzien.database
 
 import android.content.Context
-import androidx.room.*
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 
 /** Here is an abstract class which inherit from RoomDatabase (from androidx.room)
  *

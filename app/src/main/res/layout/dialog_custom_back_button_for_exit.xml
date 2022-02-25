@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 You should try to avoid to have a linear layout when it comes to having more complex applications.
 That's why Android has introduced or Google has introduced constraint layouts.
 But for such simple examples as we have here, this is still a fine approach.

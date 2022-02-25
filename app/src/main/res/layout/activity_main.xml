@@ -11,8 +11,8 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="30dp"
-        android:src="@drawable/peak_main_icon"
-        android:contentDescription="@string/image_content_description" />
+        android:contentDescription="@string/image_content_description"
+        android:src="@drawable/peak_main_icon" />
 
     <TextView
         android:layout_width="match_parent"
@@ -29,9 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/welcome_text_margin"
         android:layout_marginEnd="@dimen/welcome_text_margin"
+        android:gravity="center"
         android:paddingStart="@dimen/welcome_text_margin"
         android:paddingEnd="@dimen/welcome_text_margin"
-        android:gravity="center"
         android:text="@string/welcome_sentence"
         android:textColor="?android:textColorPrimary"
         android:textSize="@dimen/welcome_page_big_text_size"
