@@ -6,9 +6,9 @@ You can download this app on your Android Device:
 
 ### Goal ### 
 
-Create an application which let user win their days, by doing simple (it not means easy) tasks
-everyday. It should be simple application with readable interface. Also great opportunity to develop
-my programming skills. Hope this app will help me, my friends and all other people build good habits
+Create an application which let user win their days, by doing simple (it not means easy) tasks every
+day. It should be simple application with readable interface. Also great opportunity to develop my
+programming skills. Hope this app will help me, my friends and all other people build good habits
 every day and achieve our own goals.
 
 ##### Overview: #####
@@ -22,22 +22,25 @@ see that 3-4 hours will not be enough for them.
 1. First activity is to welcome user (after go to the next activity user cannot back to the welcome
    menu),
 2. Second activity is to let user to add a new task and to display list of tasks (after add them)
-   This task list contains image of task category and title - we can say it is view. a) To edit task
-   user needs to swipe the view from left to the right. b) To delete task user needs to swipe the
-   view from right to the left. c) If user click on the view, is sending to the activity where is
-   short text and quote to motivate them. This layout also contains settings button, so user can go
-   to settings area. If user press back button there is a dialog to protect from accidentally
-   closing the app.
+   This task list contains image of task category and title - we can say it is view.
+    - To edit task user needs to swipe the view from left to the right.
+    - To delete task user needs to swipe the view from right to the left,
+    - If user click on the view, is sending to the activity where is short text and quote to
+      motivate them. This layout also contains settings button, so user can go to settings area. If
+      user press back button there is a dialog to protect from accidentally closing the app.
 3. After clicking add button user is sending to add task activity where is possible to name task,
    choose category image and save it to the database,
 4. When the task is saved to the database, the task is also displaying on the list in the second
-   activity (look above point 2)
+   activity (look above - point 2),
 5. When user swipe to edit, they can edit actual task by giving it a new name and also choosing a
    new image. Record in data base is updating.
 6. Settings activity contains:
-   a) send mail to developer, b) read privacy policy, c) rate app in the google store, d) read
-   description about application, e) link to my another application in Google Play Store -> Stoik
-   Cytat Quiz e) version of app - available at the bottom of layout.
+    - send mail to developer,
+    - read privacy policy,
+    - rate app in the google store,
+    - read description about application,
+    - link to my another application in Google Play Store -> Stoik Cytat Quiz
+    - version of app - available at the bottom of layout.
 
 There is space to develop this app for different features.
 
@@ -70,7 +73,7 @@ comments. I added them to understand step by step what happen in code.
     - Using adapter to operate with data,
     - Coroutines (lifecycleScope),
     - Binding -> regarding to layout last time,
-    - Calendar -> displaying date,
+    - Calendar -> displaying actual date,
     - Serializable, Parcelable,
     - notify -> why needed
     - Swipe item to edit data,
@@ -112,15 +115,15 @@ comments. I added them to understand step by step what happen in code.
 - [Denis Panjuta](https://tutorials.eu/)
 - [Privacy Policy Generator](https://app-privacy-policy-generator.firebaseapp.com/)
 
+### Dear Visitor ###
+
+If you see an opportunity to improve my code do not hesitate to contact me:
+maciej.k.glownia@gmail.com. If you want to copy it and develop with your own idea, take it and enjoy
+learning path.
+
 ### Summary ###
 
 There are many concepts, more of them I saw first time. They need to be repeat to understand them
 better, but I used many lines of comments to write down explanation to understand, as good as
 possible, what happen in this code, which functions are responsible for, and also why some concepts
 I should use in these case.
-
-### Dear Visitor ###
-
-If you see an opportunity to improve my code do not hesitate to contact me: maciej.k.glownia@gmail.com. 
-If you want to copy it and develop with your own idea, take it and enjoy learning path.
----
