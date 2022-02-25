@@ -105,14 +105,12 @@ comments. I added them to understand step by step what happen in code.
    recommendations, advice. Also I should make some short tasks to better understand some basic
    concepts of Kotlin and programming in general. Hope next tasks will help me with that.
 
-### Links (to say "Thank you!" for others job) ###:
+### Links (to say "Thank you!" for others job): ###
 
-[hdodenhof - circle view](https://github.com/hdodenhof/CircleImageView)
-[App icons/images](https://www.flaticon.com/free-icons/android)
--> sources to specific images you can find
-here: [ImagesSources](https://github.com/maciejglownia/WygrajDzien-WinTheDay/blob/master/app/src/main/assets/Sources.txt)
-[Denis Panjuta](https://tutorials.eu/)
-[Privacy Policy Generator](https://app-privacy-policy-generator.firebaseapp.com/)
+- [hdodenhof - circle view](https://github.com/hdodenhof/CircleImageView)
+- [App icons/images](https://www.flaticon.com/free-icons/android) -> sources for images you can find here: [ImagesSources](https://github.com/maciejglownia/WygrajDzien-WinTheDay/blob/master/app/src/main/assets/Sources.txt)
+- [Denis Panjuta](https://tutorials.eu/)
+- [Privacy Policy Generator](https://app-privacy-policy-generator.firebaseapp.com/)
 
 ### Summary ###
 
@@ -120,9 +118,9 @@ There are many concepts, more of them I saw first time. They need to be repeat t
 better, but I used many lines of comments to write down explanation to understand, as good as
 possible, what happen in this code, which functions are responsible for, and also why some concepts
 I should use in these case.
----
 
 ### Dear Visitor ###
 
-If you see an opportunity to improve my code do not hesitate to tell me about it. If you want to
-copy it and develop with your own idea, take it and enjoy learning path.
+If you see an opportunity to improve my code do not hesitate to contact me: maciej.k.glownia@gmail.com. 
+If you want to copy it and develop with your own idea, take it and enjoy learning path.
+---
