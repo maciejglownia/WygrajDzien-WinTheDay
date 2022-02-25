@@ -37,7 +37,8 @@ class SettingsActivity : AppCompatActivity() {
         // Set up button to open privacy policy
         binding?.llPrivacyPolicy?.setOnClickListener {
             val browserIntent = Intent(
-                // TODO Add Privacy policy -> Intent.ACTION_VIEW, Uri.parse("link")
+                Intent.ACTION_VIEW,
+                Uri.parse("https://sites.google.com/view/wygrajdzien-privacypolicy")
             )
             startActivity(browserIntent)
         }
