@@ -40,14 +40,15 @@
     <dimen name="detail_screen_image_height_size">160dp</dimen>
     <dimen name="detail_screen_image_width_size">160dp</dimen>
     <dimen name="detail_screen_description_margin">24dp</dimen>
-    <dimen name="detail_screen_description_text_size">20sp</dimen>
+    <dimen name="detail_screen_description_text_size">24sp</dimen>
     <dimen name="detail_screen_location_marginStartEnd">8dp</dimen>
     <dimen name="detail_screen_location_marginTop">16dp</dimen>
     <dimen name="detail_screen_location_text_size">18sp</dimen>
     <dimen name="welcome_text_margin">16dp</dimen>
     <dimen name="margin_bottom_for_info_about_swiping">100dp</dimen>
     <dimen name="text_size_for_info_about_swiping">18sp</dimen>
-    <dimen name="detail_distance_between_description_and_quote">140dp</dimen>
+    <dimen name="detail_distance_between_description_and_quote">100dp</dimen>
     <dimen name="date_margin">24dp</dimen>
     <dimen name="date_text_size">24sp</dimen>
+    <dimen name="detail_screen_quote_text_size">22sp</dimen>
 </resources>

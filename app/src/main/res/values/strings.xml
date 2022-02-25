@@ -9,9 +9,9 @@
     <string name="text_when_there_is_no_task_yet">Jeszcze nie dodałeś żadnych zadań. Zrób to teraz i działaj.</string>
     <string name="image_content_description">image</string>
     <string name="choose_category">Wybierz kategorię:</string>
-    <string name="physical_health">Zdrowie fizyczne</string>
-    <string name="finance">Finanse</string>
-    <string name="mental_health">Zdrowie psychiczne</string>
+    <string name="physical_health">Zdrowie ciało</string>
+    <string name="finance">Zabezpieczony portfel</string>
+    <string name="mental_health">Obfity umysł</string>
     <string name="short_description">Short_description</string>
     <string name="Are_you_sure_you_want_exit_the_app">Czy na pewno chcesz wyjść z aplikacji?</string>
     <string name="app_version">1.0</string>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="50dp"
         android:orientation="horizontal"
         android:padding="18dp">
 
@@ -29,13 +29,15 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:contentDescription="@string/contact_icon"
-            android:src="@drawable/contact" />
+            android:src="@drawable/contact"
+            app:tint="@color/icons_in_settings" />
 
         <TextView
             android:id="@+id/tvContact"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
+            android:gravity=""
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:text="@string/contact_field"
@@ -59,13 +61,15 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:contentDescription="@string/contact_icon"
-            android:src="@drawable/privacy" />
+            android:src="@drawable/privacy"
+            app:tint="@color/icons_in_settings" />
 
         <TextView
             android:id="@+id/tvPrivacyPolicy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
+            android:gravity=""
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:text="@string/privacy_policy_field"
@@ -88,13 +92,15 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:contentDescription="@string/rate_icon"
-            android:src="@drawable/rate" />
+            android:src="@drawable/rate"
+            app:tint="@color/icons_in_settings" />
 
         <TextView
             android:id="@+id/tvRate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
+            android:gravity=""
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:text="@string/rate_field"
@@ -117,13 +123,15 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:contentDescription="@string/rate_icon"
-            android:src="@drawable/about" />
+            android:src="@drawable/about"
+            app:tint="@color/icons_in_settings" />
 
         <TextView
             android:id="@+id/tvAbout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
+            android:gravity=""
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:text="@string/info_about"
@@ -146,13 +154,15 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:contentDescription="@string/philosophy"
-            android:src="@drawable/philosophy" />
+            android:src="@drawable/philosophy"
+            app:tint="@color/icons_in_settings" />
 
         <TextView
             android:id="@+id/tvPhilosophy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
+            android:gravity=""
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:text="@string/try_my_Stoik_Cytat_Quiz_App"

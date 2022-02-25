@@ -30,7 +30,7 @@
                 android:layout_margin="@dimen/date_margin"
                 android:gravity="center"
                 android:text="@string/dateOfTasks"
-                android:textColor="@color/primary_text_color"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="@dimen/date_text_size" />
 
             <androidx.recyclerview.widget.RecyclerView

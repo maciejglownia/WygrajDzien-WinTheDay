@@ -48,9 +48,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/add_screen_task_image_marginTop"
                     android:hint="@string/edit_text_hint_title"
+
                     android:inputType="textCapWords"
-                    android:textColor="@color/primary_text_color"
-                    android:textColorHint="@color/secondary_text_color"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:textColorHint="?attr/colorOnPrimary"
                     android:textSize="@dimen/edit_text_text_size"
                     app:layout_constraintBottom_toTopOf="@id/tvChooseCategoryText"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +66,7 @@
                 android:layout_marginTop="@dimen/add_screen_text_add_image_padding"
                 android:layout_marginBottom="@dimen/add_screen_text_add_image_padding"
                 android:text="@string/choose_category"
-                android:textColor="@color/primary_text_color"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="@dimen/edit_text_text_size"
                 app:layout_constraintBottom_toTopOf="@id/llCategoryField"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +76,7 @@
             <LinearLayout
                 android:id="@+id/llCategoryField"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/add_screen_task_image_marginTop"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toTopOf="@id/ivTaskChosenCategory"
@@ -119,9 +120,9 @@
                             android:id="@+id/tvFirstCategoryTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/physical_health"
                             android:paddingStart="30dp"
-                            android:textColor="?attr/colorPrimary"
+                            android:text="@string/physical_health"
+                            android:textColor="?attr/colorOnPrimary"
                             android:textSize="@dimen/item_task_title_textSize"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -158,16 +159,15 @@
                             android:src="@drawable/bulb_brain"
                             app:civ_border_color="@color/circular_image_border_color" />
 
-                            <TextView
-                                android:id="@+id/tvSecondCategoryTitle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="?attr/colorPrimary"
-                                android:paddingStart="30dp"
-                                android:textSize="@dimen/item_task_title_textSize"
-                                android:textStyle="bold"
-                              android:text="@string/mental_health"
-                                />
+                        <TextView
+                            android:id="@+id/tvSecondCategoryTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="30dp"
+                            android:text="@string/mental_health"
+                            android:textColor="?attr/colorOnPrimary"
+                            android:textSize="@dimen/item_task_title_textSize"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -202,16 +202,16 @@
                             android:src="@drawable/money"
                             app:civ_border_color="@color/circular_image_border_color" />
 
-                            <TextView
-                                android:id="@+id/tvTitle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="?attr/colorPrimary"
-                                android:textSize="@dimen/item_task_title_textSize"
-                                android:paddingStart="30dp"
-                                android:textStyle="bold"
-                                android:text="@string/finance"
-                                tools:text="Finanse" />
+                        <TextView
+                            android:id="@+id/tvTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="30dp"
+                            android:text="@string/finance"
+                            android:textColor="?attr/colorOnPrimary"
+                            android:textSize="@dimen/item_task_title_textSize"
+                            android:textStyle="bold"
+                            tools:text="Finanse" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
