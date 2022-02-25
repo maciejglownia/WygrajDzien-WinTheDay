@@ -80,7 +80,21 @@ class SettingsActivity : AppCompatActivity() {
     private fun showDescriptionDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("O aplikacji") // About application
-        // TODO Short description of app -> builder.setMessage()
+        builder.setMessage(
+            "Masz w ręku aplikację, która pomoże Ci wygrywać dni. Wygrywać, " +
+                    "to znaczy robić proste (nie znaczy łatwe) zadania, które zbliżają Cię do celu, " +
+                    "który chcesz osiągnąć.\n\n" +
+                    "Wybierz 5 czynności (możesz więcej, ale 5 jest rekomendowane), przypisz je do " +
+                    "kategorii i działaj. Zadania nie powinny być czasochłonne. 3-4 godzin to " +
+                    "wystarczający czas na ich ukończenie.\n\n" +
+                    "Jeśli przykładowo zaczniesz o 6:00 rano, to przed południem będziesz bliżej celu, " +
+                    "a zostanie Ci jeszcze ponad połowa dnia. Jeśli rano nie możesz, zrób o innej porze. " +
+                    "Buduj nawyki krok po kroku. Wygrywając dzień po dniu.\n" +
+                    "Czy to działa? Działa. Nie musisz mi jednak wierzyć, sprawdź sam.\n\n" +
+                    "Trzymam za Ciebie kciuki!\n" +
+                    "Maciek😀\n\n" +
+                    "P.S. Droga jest celem."
+        )
 
         builder.setNegativeButton("Zamknij") // Close
         { dialogInterface, _ ->
