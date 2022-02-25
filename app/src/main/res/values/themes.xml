@@ -1,22 +1,22 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.WygrajDzien" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/blue</item>
-        <item name="colorPrimaryVariant">@color/dark_blue</item>
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryVariant">@color/dark_green</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSecondary">@color/green</item>
         <item name="colorSecondaryVariant">@color/dark_green</item>
         <item name="colorOnSecondary">@color/white_color</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/dark_blue</item>
+        <item name="android:statusBarColor">@color/dark_green</item>
         <!-- Customize your theme here. -->
     </style>
     <style name="CustomToolbarStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:textColorPrimary">@color/white_color</item>
         <item name="android:colorControlNormal">@color/white_color</item>
-        <item name="android:background">@color/blue</item>
+        <item name="android:background">@color/green</item>
     </style>
 
 </resources>
