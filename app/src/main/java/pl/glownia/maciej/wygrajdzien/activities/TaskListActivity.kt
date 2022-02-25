@@ -162,7 +162,13 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
             // Set up text with info for user how to edit and delete task
             val swipe = "Swipe >>>>> to edit \n <<<<< to delete"
             binding?.tvSwipeHint?.text = swipe
-            binding?.tvSwipeHint?.visibility = View.VISIBLE
+            // If task list becomes bigger (longer) - more than 6 tasks, swipe hint will disappear
+            if (taskList.size > 5) {
+                binding?.tvSwipeHint?.visibility = View.GONE
+            } else {
+                // If there is less than 6 tasks user can see hint
+                binding?.tvSwipeHint?.visibility = View.VISIBLE
+            }
         } else {
             // In other way opposite happens
             binding?.rvTaskList?.visibility = View.GONE
@@ -224,7 +230,7 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
         startActivity(intent)
     }
 
-    // In TaskDetailsActivity we called main activity to take task detail
+    // In TaskDetailsActivity we called TaskListActivity to take task detail
     // Companion object variable, this static variable that we have here that we now
     // can use and can see if it has this specific name, then do something with it
     companion object {
