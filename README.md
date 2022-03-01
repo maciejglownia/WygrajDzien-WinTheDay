@@ -114,6 +114,7 @@ comments. I added them to understand step by step what happen in code.
 - [App icons/images](https://www.flaticon.com/free-icons/android) -> sources for images you can find here: [ImagesSources](https://github.com/maciejglownia/WygrajDzien-WinTheDay/blob/master/app/src/main/assets/Sources.txt)
 - [Denis Panjuta](https://tutorials.eu/)
 - [Privacy Policy Generator](https://app-privacy-policy-generator.firebaseapp.com/)
+- [Norio - graphic generator](https://www.norio.be/graphic-generator/)
 
 ### Dear Visitor ###
 
