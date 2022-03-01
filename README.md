@@ -11,6 +11,16 @@ day. It should be simple application with readable interface. Also great opportu
 programming skills. Hope this app will help me, my friends and all other people build good habits
 every day and achieve our own goals.
 
+### Screenshots ###
+
+![Welcome screen](app/src/main/res/screenshots/1_welcome.png)
+![Empty task list](app/src/main/res/screenshots/2_emptyTaskList.png)
+![Add task](app/src/main/res/screenshots/3_addTask.png)
+![Added task to the list](app/src/main/res/screenshots/4_addedTasksToList.png)
+![Edit task](app/src/main/res/screenshots/5_editTask.png)
+![Delete task](app/src/main/res/screenshots/6_deleteTask.png)
+![Settings](app/src/main/res/screenshots/7_settings.png)
+
 ##### Overview: #####
 
 Application is in polish language. Winning the day means, that user is creating for example 5
