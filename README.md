@@ -11,7 +11,7 @@ day. It should be simple application with readable interface. Also great opportu
 programming skills. Hope this app will help me, my friends and all other people build good habits
 every day and achieve our own goals.
 
-### drawable ###
+### Screenshots ###
 
 ![Welcome screen](app/src/main/res/drawable/welcome.png)
 ![Empty task list](app/src/main/res/drawable/empty_task_list.png)
