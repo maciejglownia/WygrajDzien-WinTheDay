@@ -218,7 +218,7 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(position: Int, entity: TaskEntity) {
-        Toast.makeText(this, "Click -> onItemClick", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "Click -> onItemClick", Toast.LENGTH_SHORT).show() // <- way to confirm it works
         val intent = Intent(this@TaskListActivity, TaskDetailsActivity::class.java)
         // That is a little different of a topic, but just to know:
         // If you want to store an object of a class, then you can store it in a serializable way as well

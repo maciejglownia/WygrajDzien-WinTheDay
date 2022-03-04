@@ -69,11 +69,7 @@ class SettingsActivity : AppCompatActivity() {
 
         // Set up button to open my another application in Google Play Store -> Stoik Cytat Quiz
         binding?.llPhilosophy?.setOnClickListener {
-            val browserIntent = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://play.google.com/store/apps/details?id=pl.glownia.maciej.stoikcytatquiz&hl=pl")
-            )
-            startActivity(browserIntent)
+            showDialogToAskUserIfWantsToGoToGooglePlayStoreForToCheckStoikCytatQuizApp()
         }
     }
 
@@ -101,6 +97,36 @@ class SettingsActivity : AppCompatActivity() {
             dialogInterface.dismiss() // Dialog will be dismissed
         }
 
+        val appDescription: AlertDialog = builder.create()
+        appDescription.setCancelable(false) // Will not allow user to cancel after clicking on remaining screen area
+        appDescription.show()  // show the dialog to UI
+    }
+
+    // Need this method to let user decide to go to Google Play Store or stay in the application
+    private fun showDialogToAskUserIfWantsToGoToGooglePlayStoreForToCheckStoikCytatQuizApp() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Drogi Gościu!") // About application
+        builder.setMessage(
+            "Jeśli szukasz mądrości i spokoju ducha, chcesz poznać ponadczasowe myśli stoickie " +
+                    " lub sprawdzić się z ich znajomości, sprawdź mój Stoik Cytat Quiz " +
+                    "wybierając ''ZABIERZ MNIE''. \nJeśli natomiast chcesz pozostać " +
+                    "w aplikacji i kontynuować działania na Twojej drodze do sukcesu wybierz ''ZOSTAJĘ''." +
+                    "\n\n\nWybierając ''ZABIERZ MNIE'' jednocześnie wyrażasz zgodę na przeniesienie Cię do " +
+                    "Google Play Store, gdzie możesz pobrać Stoik Cytat Quiz."
+        )
+        builder.setPositiveButton("ZABIERZ MNIE") // Take me (to the Google Play Store)
+        { dialogInterface, _ ->
+            dialogInterface.dismiss()
+            val browserIntent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://play.google.com/store/apps/details?id=pl.glownia.maciej.stoikcytatquiz&hl=pl")
+            )
+            startActivity(browserIntent)
+        }
+        builder.setNegativeButton("ZOSTAJĘ") // I'm staying (in the application)
+        { dialogInterface, _ ->
+            dialogInterface.dismiss() // Dialog will be dismissed
+        }
         val appDescription: AlertDialog = builder.create()
         appDescription.setCancelable(false) // Will not allow user to cancel after clicking on remaining screen area
         appDescription.show()  // show the dialog to UI
