@@ -11,15 +11,15 @@ day. It should be simple application with readable interface. Also great opportu
 programming skills. Hope this app will help me, my friends and all other people build good habits
 every day and achieve our own goals.
 
-### Screenshots ###
+### drawable ###
 
-![Welcome screen](app/src/main/res/screenshots/1_welcome.png)
-![Empty task list](app/src/main/res/screenshots/2_emptyTaskList.png)
-![Add task](app/src/main/res/screenshots/3_addTask.png)
-![Added task to the list](app/src/main/res/screenshots/4_addedTasksToList.png)
-![Edit task](app/src/main/res/screenshots/5_editTask.png)
-![Delete task](app/src/main/res/screenshots/6_deleteTask.png)
-![Settings](app/src/main/res/screenshots/7_settings.png)
+![Welcome screen](app/src/main/res/drawable/welcome.png)
+![Empty task list](app/src/main/res/drawable/empty_task_list.png)
+![Add task](app/src/main/res/drawable/add_task.png)
+![Added task to the list](app/src/main/res/drawable/added_tasks_to_list.png)
+![Edit task](app/src/main/res/drawable/edit_task.png)
+![Delete task](app/src/main/res/drawable/delete_task.png)
+![Settings](app/src/main/res/drawable/settings.png)
 
 ##### Overview: #####
 
