@@ -1,7 +1,7 @@
 # Wygraj dzień (Win the Day) #
 
 You can download this app on your Android Device:
-[Google Play Store] (link will be added after publishing)
+[Google Play Store](https://play.google.com/store/apps/details?id=pl.glownia.maciej.wygrajdzien)
 ---
 
 ### Goal ### 
