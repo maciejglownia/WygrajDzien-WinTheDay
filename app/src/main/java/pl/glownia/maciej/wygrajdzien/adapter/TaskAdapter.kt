@@ -13,7 +13,6 @@ import pl.glownia.maciej.wygrajdzien.activities.TaskListActivity
 import pl.glownia.maciej.wygrajdzien.database.TaskEntity
 import pl.glownia.maciej.wygrajdzien.databinding.ItemTaskBinding
 
-
 // We can now use here in < > -> TaskAdapter.ViewHolder, which is this class that we created below
 // We need now to pass into a list that we want to use -> an array list in this case
 // TaskEntity is our model, which we are also using for our database

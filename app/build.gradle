@@ -8,13 +8,13 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         applicationId "pl.glownia.maciej.wygrajdzien"
-        minSdk 21
-        targetSdk 32
-        versionCode 2
+        minSdk 24
+        targetSdk 34
+        versionCode 3
         versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -27,37 +27,32 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
     buildFeatures {
         viewBinding true
     }
+    namespace 'pl.glownia.maciej.wygrajdzien'
 }
 
 dependencies {
-
-    // Need to add this below for room
-    def room_version = '2.4.1'
-    def activityVersion = '1.4.0'
-
     // Room and Lifecycle dependencies
-    implementation "androidx.room:room-runtime:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:2.5.2"
+    kapt "androidx.room:room-compiler:2.5.2"
 
     // Kotlin extension for coroutine support with room
-    implementation("androidx.room:room-ktx:$room_version")
+    implementation "androidx.core:core-ktx:1.13.1"
 
     // Kotlin extension for coroutine support with activities
-    implementation("androidx.activity:activity-ktx:$activityVersion")
+    implementation 'androidx.activity:activity-ktx:1.9.0'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    // https://github.com/hdodenhof/CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

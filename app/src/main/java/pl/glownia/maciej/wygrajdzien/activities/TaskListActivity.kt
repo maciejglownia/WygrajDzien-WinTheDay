@@ -75,6 +75,7 @@ class TaskListActivity : AppCompatActivity(), TaskAdapter.OnItemClickListener {
         updateDateInView()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         customDialogForBackButton()
     }
