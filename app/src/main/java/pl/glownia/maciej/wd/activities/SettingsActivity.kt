@@ -1,4 +1,4 @@
-package pl.glownia.maciej.wygrajdzien.activities
+package pl.glownia.maciej.wd.activities
 
 import android.app.AlertDialog
 import android.content.ActivityNotFoundException
@@ -6,7 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import pl.glownia.maciej.wygrajdzien.databinding.ActivitySettingsBinding
+import pl.glownia.maciej.wd.databinding.ActivitySettingsBinding
 
 class SettingsActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package pl.glownia.maciej.wygrajdzien.adapter
+package pl.glownia.maciej.wd.adapter
 
 import android.app.Activity
 import android.content.Context
@@ -7,11 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import pl.glownia.maciej.wygrajdzien.R
-import pl.glownia.maciej.wygrajdzien.activities.AddTaskToDoActivity
-import pl.glownia.maciej.wygrajdzien.activities.TaskListActivity
-import pl.glownia.maciej.wygrajdzien.database.TaskEntity
-import pl.glownia.maciej.wygrajdzien.databinding.ItemTaskBinding
+import pl.glownia.maciej.wd.R
+import pl.glownia.maciej.wd.activities.AddTaskToDoActivity
+import pl.glownia.maciej.wd.activities.TaskListActivity
+import pl.glownia.maciej.wd.database.TaskEntity
+import pl.glownia.maciej.wd.databinding.ItemTaskBinding
 
 // We can now use here in < > -> TaskAdapter.ViewHolder, which is this class that we created below
 // We need now to pass into a list that we want to use -> an array list in this case

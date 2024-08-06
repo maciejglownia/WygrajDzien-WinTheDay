@@ -1,4 +1,4 @@
-package pl.glownia.maciej.wygrajdzien.database
+package pl.glownia.maciej.wd.database
 
 import android.content.Context
 import androidx.room.Database

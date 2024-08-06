@@ -1,4 +1,4 @@
-package pl.glownia.maciej.wygrajdzien.activities
+package pl.glownia.maciej.wd.activities
 
 import android.app.Dialog
 import android.content.Intent
@@ -12,17 +12,16 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import pl.glownia.maciej.wygrajdzien.R
-import pl.glownia.maciej.wygrajdzien.adapter.TaskAdapter
-import pl.glownia.maciej.wygrajdzien.database.TaskApp
-import pl.glownia.maciej.wygrajdzien.database.TaskDao
-import pl.glownia.maciej.wygrajdzien.database.TaskEntity
-import pl.glownia.maciej.wygrajdzien.databinding.ActivityTaskListBinding
-import pl.glownia.maciej.wygrajdzien.databinding.DialogCustomBackButtonForExitBinding
-import pl.glownia.maciej.wygrajdzien.utils.SwipeToDeleteCallback
-import pl.glownia.maciej.wygrajdzien.utils.SwipeToEditCallback
+import pl.glownia.maciej.wd.R
+import pl.glownia.maciej.wd.adapter.TaskAdapter
+import pl.glownia.maciej.wd.database.TaskApp
+import pl.glownia.maciej.wd.database.TaskDao
+import pl.glownia.maciej.wd.database.TaskEntity
+import pl.glownia.maciej.wd.databinding.ActivityTaskListBinding
+import pl.glownia.maciej.wd.databinding.DialogCustomBackButtonForExitBinding
+import pl.glownia.maciej.wd.utils.SwipeToDeleteCallback
+import pl.glownia.maciej.wd.utils.SwipeToEditCallback
 import java.text.SimpleDateFormat
 import java.util.*
 

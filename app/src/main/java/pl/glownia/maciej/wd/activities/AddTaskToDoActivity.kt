@@ -1,4 +1,4 @@
-package pl.glownia.maciej.wygrajdzien.activities
+package pl.glownia.maciej.wd.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import pl.glownia.maciej.wygrajdzien.R
-import pl.glownia.maciej.wygrajdzien.database.TaskApp
-import pl.glownia.maciej.wygrajdzien.database.TaskDao
-import pl.glownia.maciej.wygrajdzien.database.TaskEntity
-import pl.glownia.maciej.wygrajdzien.databinding.ActivityAddTasksToDoBinding
+import pl.glownia.maciej.wd.R
+import pl.glownia.maciej.wd.database.TaskApp
+import pl.glownia.maciej.wd.database.TaskDao
+import pl.glownia.maciej.wd.database.TaskEntity
+import pl.glownia.maciej.wd.databinding.ActivityAddTasksToDoBinding
 
 // View.OnClickListener -> make whole class -> also need to implement members (onClick())
 class AddTaskToDoActivity : AppCompatActivity(), View.OnClickListener {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="pl.glownia.maciej.wygrajdzien">
+    package="pl.glownia.maciej.wd">
 
     <application
-        android:name=".database.TaskApp"
+        android:name="pl.glownia.maciej.wd.database.TaskApp"
         android:allowBackup="true"
         android:icon="@drawable/peak_main_icon"
         android:label="@string/app_name"

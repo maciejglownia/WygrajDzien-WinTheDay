@@ -1,4 +1,4 @@
-package pl.glownia.maciej.wygrajdzien.database
+package pl.glownia.maciej.wd.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

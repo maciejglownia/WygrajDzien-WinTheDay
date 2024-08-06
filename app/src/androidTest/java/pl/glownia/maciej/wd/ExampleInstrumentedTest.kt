@@ -1,4 +1,4 @@
-package pl.glownia.maciej.wygrajdzien
+package pl.glownia.maciej.wd
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

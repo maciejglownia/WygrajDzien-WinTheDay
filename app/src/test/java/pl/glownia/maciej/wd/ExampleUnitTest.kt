@@ -1,4 +1,4 @@
-package pl.glownia.maciej.wygrajdzien
+package pl.glownia.maciej.wd
 
 import org.junit.Test
 

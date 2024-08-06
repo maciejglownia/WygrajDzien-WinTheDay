@@ -11,7 +11,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "pl.glownia.maciej.wygrajdzien"
+        applicationId "pl.glownia.maciej.wd"
         minSdk 24
         targetSdk 34
         versionCode 3
@@ -36,7 +36,7 @@ android {
     buildFeatures {
         viewBinding true
     }
-    namespace 'pl.glownia.maciej.wygrajdzien'
+    namespace 'pl.glownia.maciej.wd'
 }
 
 dependencies {

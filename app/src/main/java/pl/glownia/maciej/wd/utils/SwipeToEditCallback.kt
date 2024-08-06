@@ -1,4 +1,4 @@
-package pl.glownia.maciej.wygrajdzien.utils
+package pl.glownia.maciej.wd.utils
 
 import android.content.Context
 import android.graphics.*
@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import pl.glownia.maciej.wygrajdzien.R
+import pl.glownia.maciej.wd.R
 
 // Also is good to check explanation of this class at link below.
 // https://medium.com/@kitek/recyclerview-swipe-to-delete-easier-than-you-thought-cff67ff5e5f6

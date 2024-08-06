@@ -1,10 +1,10 @@
-package pl.glownia.maciej.wygrajdzien.activities
+package pl.glownia.maciej.wd.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import pl.glownia.maciej.wygrajdzien.R
-import pl.glownia.maciej.wygrajdzien.database.TaskEntity
-import pl.glownia.maciej.wygrajdzien.databinding.ActivityTaskDetailsBinding
+import pl.glownia.maciej.wd.R
+import pl.glownia.maciej.wd.database.TaskEntity
+import pl.glownia.maciej.wd.databinding.ActivityTaskDetailsBinding
 
 class TaskDetailsActivity : AppCompatActivity() {
     private var binding: ActivityTaskDetailsBinding? = null

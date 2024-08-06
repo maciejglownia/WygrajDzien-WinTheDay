@@ -1,4 +1,4 @@
-package pl.glownia.maciej.wygrajdzien.utils
+package pl.glownia.maciej.wd.utils
 
 import android.content.Context
 import android.graphics.*
@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import pl.glownia.maciej.wygrajdzien.R
+import pl.glownia.maciej.wd.R
 
 /**
  * Similar to SwipeToDeleteCallback but with some changes
