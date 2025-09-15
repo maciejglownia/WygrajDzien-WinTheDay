@@ -1,8 +1,4 @@
 # Wygraj dzień (Win the Day) #
-
-You can download this app on your Android Device:
-// todo add the link when the app is deployed
-[Google Play Store]()
 ---
 
 ### Goal ### 
